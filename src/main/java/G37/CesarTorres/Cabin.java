@@ -48,7 +48,7 @@ public class Cabin implements Serializable {
     */
     @ManyToOne
     @JoinColumn(name = "categoryId")
-    @JsonIgnoreProperties("cabin")
+    @JsonIgnoreProperties("cabins")
     private Categoria category;
     
     /*

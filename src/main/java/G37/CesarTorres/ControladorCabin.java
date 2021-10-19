@@ -30,7 +30,7 @@ public class ControladorCabin {
     @Autowired
     private ServiciosCabin servicio;
     @GetMapping("/all")
-    public List<Cabin> getCabin(){
+    public List<Cabin> getCabins(){
         return servicio.getAll();
     }
 
