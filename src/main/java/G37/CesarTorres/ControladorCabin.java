@@ -35,7 +35,7 @@ public class ControladorCabin {
     }
 
     @GetMapping("/{id}")
-    public Optional<Cabin> getBike(@PathVariable("id") int cabinId) {
+    public Optional<Cabin> getCabin(@PathVariable("id") int cabinId) {
         return servicio.getCabin(cabinId);
     }
 
