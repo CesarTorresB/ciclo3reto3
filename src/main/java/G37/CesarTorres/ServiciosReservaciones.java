@@ -14,19 +14,36 @@ import org.springframework.stereotype.Service;
  * @author cesartbossa
  */
 
+/*
+* Anotacion Spring para sefvicios
+*/
 @Service
+/*
+* Clase publiva de servicios reservaciones
+*/
 public class ServiciosReservaciones {
+    /*
+    * Anotacion de Spring Framework que permite inyectar unas dependencias 
+    * con otras dentro de Spring
+    */
     @Autowired
+    /*
+    * Repositorio con metodos CRUD
+    */
     private RepositorioReservaciones metodosCrud;
-
+    /*
+    * Servisio get
+    */
     public List<Reservaciones> getAll(){
         return metodosCrud.getAll();
     }
-
+    
     public Optional<Reservaciones> getReservation(int reservationId) {
         return metodosCrud.getReservation(reservationId);
     }
-
+    /*
+    * Servicio de guardado
+    */
     public Reservaciones save(Reservaciones reservation){
         if(reservation.getIdReservation()==null){
             return metodosCrud.save(reservation);
@@ -39,7 +56,9 @@ public class ServiciosReservaciones {
             }
         }
     }
-    
+    /*
+    * Servicio de actualizado
+    */
     public Reservaciones update(Reservaciones reservation){
         if(reservation.getIdReservation()!=null){
             Optional<Reservaciones> e= metodosCrud.getReservation(reservation.getIdReservation());
@@ -63,7 +82,9 @@ public class ServiciosReservaciones {
             return reservation;
         }
     }
-
+    /*
+    * Servicio de borrado
+    */
     public boolean deleteReservation(int reservationId) {
         Boolean aBoolean = getReservation(reservationId).map(reservation -> {
             metodosCrud.delete(reservation);
