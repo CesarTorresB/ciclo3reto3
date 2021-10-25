@@ -56,6 +56,6 @@ public class ControladorCategoria {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int categoriaId) {
-        return servicio.deletecategoria(categoriaId);
+        return servicio.deleteCategoria(categoriaId);
     }
 }
