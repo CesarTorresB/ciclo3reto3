@@ -46,14 +46,4 @@ public class ControladorReservaciones {
         return servicio.save(reservation);
     }
     
-    @PutMapping("/update")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Reservaciones update(@RequestBody Reservaciones reservation) {
-        return servicio.update(reservation);
-    }
-    @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int reservationId) {
-        return servicio.deleteReservation(reservationId);
-    }
 }
