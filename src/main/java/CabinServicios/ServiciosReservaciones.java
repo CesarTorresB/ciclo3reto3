@@ -58,41 +58,5 @@ public class ServiciosReservaciones {
             }
         }
     }
-    /*
-    * Servicio de actualizado
-    */
-    public Reservaciones update(Reservaciones reservation){
-        if(reservation.getIdReservation()!=null){
-            Optional<Reservaciones> e= metodosCrud.getReservation(reservation.getIdReservation());
-            if(!e.isEmpty()){
-
-                if(reservation.getStartDate()!=null){
-                    e.get().setStartDate(reservation.getStartDate());
-                }
-                if(reservation.getDevolutionDate()!=null){
-                    e.get().setDevolutionDate(reservation.getDevolutionDate());
-                }
-                if(reservation.getStatus()!=null){
-                    e.get().setStatus(reservation.getStatus());
-                }
-                metodosCrud.save(e.get());
-                return e.get();
-            }else{
-                return reservation;
-            }
-        }else{
-            return reservation;
-        }
-    }
-    /*
-    * Servicio de borrado
-    */
-    public boolean deleteReservation(int reservationId) {
-        Boolean aBoolean = getReservation(reservationId).map(reservation -> {
-            metodosCrud.delete(reservation);
-            return true;
-        }).orElse(false);
-        return aBoolean;
-    }
     
 }

@@ -42,29 +42,4 @@ public class ServiciosMensaje {
         }
     }
     
-    public Mensaje update(Mensaje message){
-        if(message.getIdMessage()!=null){
-            Optional<Mensaje> e= metodosCrud.getMessage(message.getIdMessage());
-            if(!e.isEmpty()){
-                if(message.getMessageText()!=null){
-                    e.get().setMessageText(message.getMessageText());
-                }
-                metodosCrud.save(e.get());
-                return e.get();
-            }else{
-                return message;
-            }
-        }else{
-            return message;
-        }
-    }
-
-    public boolean deleteMessage(int messageId) {
-        Boolean aBoolean = getMessage(messageId).map(message -> {
-            metodosCrud.delete(message);
-            return true;
-        }).orElse(false);
-        return aBoolean;
-    }
-    
 }

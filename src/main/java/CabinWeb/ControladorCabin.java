@@ -46,17 +46,5 @@ public class ControladorCabin {
     public Cabin save(@RequestBody Cabin cabin) {
         return servicio.save(cabin);
     }
-    
-    @PutMapping("/update")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Cabin update(@RequestBody Cabin cabin) {
-        return servicio.update(cabin);
-    }
-
-    @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int cabinId) {
-        return servicio.deleteCabin(cabinId);
-    }
    
 }
