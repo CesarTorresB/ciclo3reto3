@@ -60,5 +60,5 @@ public class ControladorCabin {
     public boolean delete(@PathVariable("id") int cabinId) {
         return servicio.deleteCabin(cabinId);
     }
-   
+    
 }

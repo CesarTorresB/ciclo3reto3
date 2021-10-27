@@ -57,12 +57,11 @@ public class ServiciosCategoria {
         }
         return categoria;
     }
-    public boolean deleteCategoria(int categoriaId){
+    public boolean deletecategoria(int categoriaId){
         Boolean d=getCategoria(categoriaId).map(categoria -> {
             metodosCrud.delete(categoria);
             return true;
         }).orElse(false);
         return d;
     }
-    
 }
