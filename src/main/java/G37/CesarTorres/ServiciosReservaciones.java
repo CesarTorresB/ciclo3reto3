@@ -98,14 +98,18 @@ public class ServiciosReservaciones {
         }).orElse(false);
         return aBoolean;
     }
-    
+    /*
+    * Reportes de reservaciones
+    */
     public StatusReservas reporteStatusServicio (){
         List<Reservaciones>completed= metodosCrud.ReservacionStatusRepositorio("completed");
         List<Reservaciones>cancelled= metodosCrud.ReservacionStatusRepositorio("cancelled");
         
         return new StatusReservas(completed.size(), cancelled.size() );
     }
-    
+    /*
+    * Lista de reservaciones y fecha
+    */
     public List<Reservaciones> reporteTiempoServicio (String datoA, String datoB){
         SimpleDateFormat parser = new SimpleDateFormat ("yyyy-MM-dd");
         
@@ -124,7 +128,9 @@ public class ServiciosReservaciones {
         
         } 
     }
-    
+    /*
+    * Contador clientes
+    */
     public List<ContadorCliente> reporteClientesServicio(){
             return metodosCrud.getClientesRepositorio();
         }
